@@ -40,7 +40,7 @@ def process_title(title):
 def parse_xml(url, parse_filenames=False):
     # Download the XML from the URL
     r = requests.get(url)
-    data = r.content.decode(r.encoding if r.encoding else r.apparent_encoding)
+    data = r.content.decode(r.encoding or r.apparent_encoding)
 
     # Parse the retrieved XML file
     root = ET.fromstring(data)
